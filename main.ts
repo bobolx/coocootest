@@ -218,16 +218,16 @@ namespace CooCoo {
         }
     }
 
-    //% blockId=coocoo_sensor block="障碍物的距离 %unit"
+    //% blockId=coocoo_sensor block="障碍物de距离 %unit"
     //% weight=69
     export function sensorDistance(unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
-        //pins.digitalWritePin(DigitalPin.P2, 0);
-        //control.waitMicros(2);
-        //pins.digitalWritePin(DigitalPin.P2, 1);
-        //control.waitMicros(10);
-        //pins.digitalWritePin(DigitalPin.P2, 0);
+        pins.digitalWritePin(DigitalPin.P2, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(DigitalPin.P2, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(DigitalPin.P2, 0);
         
         // read pulse
         let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 42);
