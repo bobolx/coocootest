@@ -230,7 +230,7 @@ namespace CooCoo {
         pins.digitalWritePin(DigitalPin.P2, 0);
         
         // read pulse
-        let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 42);
+        const d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 42);
         //console.log("Distance: " + d/42);
         
         basic.pause(50)
