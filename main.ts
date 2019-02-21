@@ -218,7 +218,7 @@ namespace CooCoo {
         }
     }
 
-    //% blockId=coocoo_sensor block="障碍物de距离 %unit"
+    //% blockId=coocoo_sensor block="障碍物距离 %unit"
     //% weight=69
     export function sensorDistance(unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
@@ -233,12 +233,13 @@ namespace CooCoo {
         const d = pins.pulseIn(DigitalPin.P2, PulseValue.High, maxCmDistance * 42);
         //console.log("Distance: " + d/42);
         
-        basic.pause(50)
+        //basic.pause(50)
 
         switch (unit) {
-            case PingUnit.Centimeters: return Math.round(d / 42);
+            case PingUnit.Centimeters: return Math.idiv(d, 42);
             default: return d ;
         }
+
     }
 
 }
